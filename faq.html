@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常见问题 · 原琴辅助演奏 MAGIL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #0b1c2f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.08);
+    }
+
+    .gradient-text {
+      background: linear-gradient(145deg, #0b2b5e, #1d4a7a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .bg-soft-gradient {
+      background: radial-gradient(circle at 10% 30%, rgba(215, 235, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 70%);
+    }
+
+
+    .navbar {
+      position: sticky;
+      top: 24px;
+      z-index: 50;
+      border-radius: 48px;
+      padding: 12px 28px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 12px 32px -12px rgba(0, 32, 64, 0.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.4px;
+    }
+
+    .logo i {
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #1f5f9e, #3a7fc1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: #1e3a5f;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #0b2b5e;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-outline {
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1px solid rgba(27, 55, 96, 0.2);
+      background: transparent;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1a3a60;
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .btn-outline i {
+      margin-right: 8px;
+    }
+
+    .btn-primary {
+      padding: 10px 26px;
+      border-radius: 40px;
+      border: none;
+      background: #0b2b5e;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 16px -6px rgba(11, 43, 94, 0.25);
+      transition: 0.25s;
+      cursor: default;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-primary i {
+      margin-right: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #143f72;
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px -8px rgba(11, 43, 94, 0.35);
+    }
+
+    .btn-outline:hover {
+      background: rgba(11, 43, 94, 0.04);
+      border-color: #0b2b5e;
+    }
+
+
+    .docs-header {
+      padding: 50px 0 20px;
+      text-align: left;
+    }
+
+    .docs-header .breadcrumb {
+      font-size: 0.9rem;
+      color: #2d4a6a;
+      opacity: 0.6;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .docs-header .breadcrumb i {
+      font-size: 0.7rem;
+    }
+
+    .docs-header h1 {
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .docs-header h1 .highlight {
+      background: linear-gradient(145deg, #174a7a, #3070b0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .docs-header p {
+      font-size: 1.2rem;
+      color: #2d4a6a;
+      opacity: 0.8;
+      max-width: 640px;
+      font-weight: 400;
+    }
+
+
+    .docs-content {
+      padding: 20px 0 40px;
+    }
+
+    .doc-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 48px;
+      padding: 48px 52px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 16px 40px -16px rgba(0, 20, 40, 0.08);
+      margin-bottom: 40px;
+      transition: 0.2s;
+    }
+
+    .doc-card h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 0.8rem;
+      margin-bottom: 0.6rem;
+      color: #0b1c2f;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-card h2 i {
+      color: #1f5f9e;
+      font-size: 1.8rem;
+      width: 2.4rem;
+    }
+
+    .doc-card p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #13314f;
+      margin-bottom: 1.2rem;
+    }
+
+    .doc-card strong {
+      color: #0b2b5e;
+      font-weight: 600;
+    }
+
+    .doc-card .highlight-blue {
+      background: rgba(11, 43, 94, 0.06);
+      padding: 0 8px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+
+    .faq-list {
+      margin: 0.8rem 0 0.4rem;
+    }
+
+    .faq-item {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(11, 43, 94, 0.04);
+      padding-bottom: 1.8rem;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #0b1c2f;
+      margin-bottom: 6px;
+    }
+
+    .faq-question i {
+      color: #1f5f9e;
+      font-size: 1.2rem;
+      margin-top: 4px;
+      width: 1.6rem;
+    }
+
+    .faq-answer {
+      padding-left: 2.8rem;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #13314f;
+    }
+
+    .faq-answer code {
+      background: rgba(11, 43, 94, 0.04);
+      padding: 0.1rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-family: 'Inter', monospace;
+      color: #14345a;
+    }
+
+    .faq-answer a {
+      color: #0b2b5e;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(11, 43, 94, 0.06);
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1a4a7a;
+      border: 1px solid rgba(11, 43, 94, 0.04);
+      margin-right: 6px;
+    }
+
+    .doc-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(11, 43, 94, 0.08), transparent);
+      margin: 32px 0 24px;
+    }
+
+    @media (max-width: 780px) {
+      .doc-card {
+        padding: 32px 24px;
+        border-radius: 32px;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .navbar {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        border-radius: 32px;
+        padding: 14px 22px;
+        top: 16px;
+      }
+      .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-actions {
+        gap: 10px;
+      }
+      .docs-header h1 {
+        font-size: 2.4rem;
+      }
+      .faq-question {
+        font-size: 1.05rem;
+      }
+      .faq-answer {
+        padding-left: 1.8rem;
+      }
+    }
+
+
+    .footer {
+      margin-top: 40px;
+      padding: 40px 0 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      align-items: center;
+      color: #1f3f5f;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-socials a {
+      transition: 0.2s;
+      opacity: 0.6;
+    }
+
+    .footer-socials a:hover {
+      opacity: 1;
+      color: #0b2b5e;
+    }
+
+    .btn-primary, .btn-hero-primary, .btn-outline, .btn-hero-ghost {
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <div class="container bg-soft-gradient" style="border-radius: 0 0 60px 60px; padding-bottom: 8px;">
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="MAGIL_Icon.png" alt="MAGIL Logo" style="height: 32px; width: auto; vertical-align: middle;" />
+          <span>原琴辅助演奏MAGIL</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="tutorial.html">教程</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">常见问题</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-outline" href="https://space.bilibili.com/1302740287" target="_blank">
+          <i class="fab fa-bilibili"></i> Bilibili
+        </a>
+        <a class="btn-outline" href="https://github.com/qinmingming16/magil" target="_blank">
+          <i class="fab fa-github"></i> Github
+        </a>
+        <a class="btn-primary" href="download.html">
+          <i class="fas fa-download"></i> 下载
+        </a>
+      </div>
+    </nav>
+
+
+    <div class="docs-header">
+      <div class="breadcrumb">
+        <span>常见问题</span>
+      </div>
+      <h1>
+        常见问题 <span class="highlight">解答</span>
+      </h1>
+      <p>这里汇总了关于 MAGIL 的高频疑问，如果还有未覆盖到的，欢迎反馈。</p>
+    </div>
+  </div>
+
+
+  <div class="container docs-content">
+    <div class="doc-card">
+      <h2><i class="fas fa-question-circle"></i> 高频问题</h2>
+      <div class="faq-list">
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>MAGIL 的自动化功能篡改或注入了游戏数据吗？</span>
+          </div>
+          <div class="faq-answer">
+            MAGIL <strong>仅使用系统开放的自动化输入接口</strong>，不修改游戏内存或数据。但请合理使用，任何在演奏竞技中使用 MAGIL 自动演奏或伪装真人演奏的行为都是被坚决抵制的。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>支持哪些系统平台？</span>
+          </div>
+          <div class="faq-answer">
+            目前 MAGIL 提供 <strong>Windows 桌面端</strong>（最新 MAGIL 4.0）和 <strong>Android 移动端</strong>（最新 MAGILM4.1）。macOS 与 HarmonyOS 版本暂未考虑，请关注后续更新。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>如何安装 MAGIL？</span>
+          </div>
+          <div class="faq-answer">
+            <strong>Windows:</strong> 下载 <code>.zip</code> 压缩包，解压后解压文件夹内双击 <code>MAGIL.exe</code> 运行（推荐用管理员权限运行）。<br />
+            <strong>Android:</strong> 下载 <code>.apk</code> 文件，在手机中安装。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>MAGIL 支持哪些琴谱格式？琴谱从哪里来？</span>
+          </div>
+          <div class="faq-answer">
+            支持 <span class="highlight-blue">指尖谱</span> 和 <span class="highlight-blue">呱呱谱</span> 两种主流文本格式。也支持自研的 <span class="highlight-blue">建筑谱</span> 和经过一些处理的 <span class="highlight-blue">MIDI谱</span>。视频平台社区提供了大量琴谱，但请尊重制谱的劳动成果，在必要时声明琴谱来源。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>遇到崩溃或 Bug 怎么办？</span>
+          </div>
+          <div class="faq-answer">
+            请将崩溃或 Bug 描述提交至 GitHub Issues，或通过 Bilibili 私信作者。MAGIL会尽快排查和修复。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>如何参与贡献？</span>
+          </div>
+          <div class="faq-answer">
+            MAGIL 完全开源，欢迎任何形式的贡献：代码、文档、翻译、琴谱、UI 设计等。你可以在 <strong>GitHub</strong> 上点 Star、提 Issue 或提交 Pull Request，也可以通过 Bilibili 与作者交流。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>MAGIL 是免费的吗？</span>
+          </div>
+          <div class="faq-answer">
+            <strong>完全免费</strong>。MAGIL 使用 <strong>GNU General Public License v3.0 (GPLv3)</strong> 许可证。这意味着你可以自由使用、修改和分发本软件，但任何修改后的版本也必须以相同的许可证开源。MAGIL 永远保持开源和免费。
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <i class="fas fa-circle-question"></i>
+            <span>在哪里可以获取最新版本？</span>
+          </div>
+          <div class="faq-answer">
+            最新版本发布在 <strong>GitHub Releases</strong> 页面，你也可以关注作者的 Bilibili 账号获取更新通知。作者主页：<a href="https://github.com/qinmingming16" target="_blank" style="color: #0b2b5e; text-decoration: underline;">github.com/qinmingming16</a>
+          </div>
+        </div>
+
+      </div>
+
+
+  <footer class="container footer">
+    <div>© 2026 · MAGIL</div>
+    <div class="footer-socials">
+      <a href="https://space.bilibili.com/1302740287"><i class="fab fa-bilibili"></i></a>
+    </div>
+  </footer>
+
+
+  <script>
+    document.querySelectorAll('.btn-primary, .btn-hero-primary, .btn-outline, .btn-hero-ghost').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const hasHref = el.hasAttribute('href') && el.getAttribute('href') !== '' && el.getAttribute('href') !== '#';
+        if (!hasHref) {
+          e.preventDefault();
+        }
+        el.style.transform = 'scale(0.97)';
+        setTimeout(() => { el.style.transform = ''; }, 120);
+      });
+    });
+  </script>
+</body>
+</html>

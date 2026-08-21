@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教程 · 原琴辅助演奏 MAGIL</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #0b1c2f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.08);
+    }
+
+    .gradient-text {
+      background: linear-gradient(145deg, #0b2b5e, #1d4a7a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .bg-soft-gradient {
+      background: radial-gradient(circle at 10% 30%, rgba(215, 235, 255, 0.5) 0%, rgba(255, 255, 255, 0.9) 70%);
+    }
+
+
+    .navbar {
+      position: sticky;
+      top: 24px;
+      z-index: 50;
+      border-radius: 48px;
+      padding: 12px 28px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 12px 32px -12px rgba(0, 32, 64, 0.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.4px;
+    }
+
+    .logo i {
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #1f5f9e, #3a7fc1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: #1e3a5f;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #0b2b5e;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .btn-outline {
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1px solid rgba(27, 55, 96, 0.2);
+      background: transparent;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #1a3a60;
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .btn-outline i {
+      margin-right: 8px;
+    }
+
+    .btn-primary {
+      padding: 10px 26px;
+      border-radius: 40px;
+      border: none;
+      background: #0b2b5e;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 16px -6px rgba(11, 43, 94, 0.25);
+      transition: 0.25s;
+      cursor: default;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-primary i {
+      margin-right: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #143f72;
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px -8px rgba(11, 43, 94, 0.35);
+    }
+
+    .btn-outline:hover {
+      background: rgba(11, 43, 94, 0.04);
+      border-color: #0b2b5e;
+    }
+
+
+    .docs-header {
+      padding: 50px 0 20px;
+      text-align: left;
+    }
+
+    .docs-header .breadcrumb {
+      font-size: 0.9rem;
+      color: #2d4a6a;
+      opacity: 0.6;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .docs-header .breadcrumb i {
+      font-size: 0.7rem;
+    }
+
+    .docs-header h1 {
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .docs-header h1 .highlight {
+      background: linear-gradient(145deg, #174a7a, #3070b0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .docs-header p {
+      font-size: 1.2rem;
+      color: #2d4a6a;
+      opacity: 0.8;
+      max-width: 640px;
+      font-weight: 400;
+    }
+
+
+    .docs-content {
+      padding: 20px 0 40px;
+    }
+
+    .doc-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 48px;
+      padding: 48px 52px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 16px 40px -16px rgba(0, 20, 40, 0.08);
+      margin-bottom: 40px;
+      transition: 0.2s;
+    }
+
+    .doc-card h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 0.8rem;
+      margin-bottom: 0.6rem;
+      color: #0b1c2f;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-card h2 i {
+      color: #1f5f9e;
+      font-size: 1.8rem;
+      width: 2.4rem;
+    }
+
+    .doc-card p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #13314f;
+      margin-bottom: 1.2rem;
+    }
+
+    .doc-card strong {
+      color: #0b2b5e;
+      font-weight: 600;
+    }
+
+    .doc-card .highlight-blue {
+      background: rgba(11, 43, 94, 0.06);
+      padding: 0 8px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+
+    .tutorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin: 30px 0 10px;
+    }
+
+    .tutorial-card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      padding: 32px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 8px 20px -10px rgba(0, 20, 40, 0.06);
+      transition: 0.25s ease;
+      text-align: left;
+    }
+
+    .tutorial-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 20px 36px -14px rgba(11, 43, 94, 0.12);
+      border-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .tutorial-card .card-icon {
+      font-size: 2.4rem;
+      color: #1f5f9e;
+      margin-bottom: 16px;
+      display: inline-block;
+      background: rgba(11, 43, 94, 0.04);
+      padding: 10px 14px;
+      border-radius: 24px;
+    }
+
+    .tutorial-card h3 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: #0b1c2f;
+    }
+
+    .tutorial-card p {
+      font-size: 1rem;
+      color: #1f3f5f;
+      opacity: 0.8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .tutorial-card .btn-bilibili {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 60px;
+      background: #0b2b5e;
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      box-shadow: 0 6px 16px -6px rgba(11, 43, 94, 0.25);
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .tutorial-card .btn-bilibili i {
+      font-size: 1.1rem;
+    }
+
+    .tutorial-card .btn-bilibili:hover {
+      background: #143f72;
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px -8px rgba(11, 43, 94, 0.35);
+    }
+
+    .doc-divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(11, 43, 94, 0.08), transparent);
+      margin: 32px 0 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(11, 43, 94, 0.06);
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1a4a7a;
+      border: 1px solid rgba(11, 43, 94, 0.04);
+      margin-right: 6px;
+    }
+
+    @media (max-width: 780px) {
+      .doc-card {
+        padding: 32px 24px;
+        border-radius: 32px;
+      }
+      .container {
+        padding: 0 24px;
+      }
+      .navbar {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        border-radius: 32px;
+        padding: 14px 22px;
+        top: 16px;
+      }
+      .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-actions {
+        gap: 10px;
+      }
+      .docs-header h1 {
+        font-size: 2.4rem;
+      }
+      .tutorial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .footer {
+      margin-top: 40px;
+      padding: 40px 0 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      align-items: center;
+      color: #1f3f5f;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-socials a {
+      transition: 0.2s;
+      opacity: 0.6;
+    }
+
+    .footer-socials a:hover {
+      opacity: 1;
+      color: #0b2b5e;
+    }
+
+    .btn-primary, .btn-hero-primary, .btn-outline, .btn-hero-ghost, .btn-bilibili {
+      cursor: default;
+    }
+  </style>
+</head>
+<body>
+  <div class="container bg-soft-gradient" style="border-radius: 0 0 60px 60px; padding-bottom: 8px;">
+
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="MAGIL_Icon.png" alt="MAGIL Logo" style="height: 32px; width: auto; vertical-align: middle;" />
+          <span>原琴辅助演奏MAGIL</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="tutorial.html">教程</a>
+        <a href="docs.html">文档</a>
+        <a href="faq.html">常见问题</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn-outline" href="https://space.bilibili.com/1302740287" target="_blank">
+          <i class="fab fa-bilibili"></i> Bilibili
+        </a>
+        <a class="btn-outline" href="https://github.com/qinmingming16/magil" target="_blank">
+          <i class="fab fa-github"></i> Github
+        </a>
+        <a class="btn-primary" href="download.html">
+          <i class="fas fa-download"></i> 下载
+        </a>
+      </div>
+    </nav>
+
+
+    <div class="docs-header">
+      <div class="breadcrumb">
+        <span>教程</span>
+      </div>
+      <h1>
+        快速上手 <span class="highlight">视频教程</span>
+      </h1>
+      <p>完整视频教程，从安装到首次演奏，带你轻松掌握 MAGIL。</p>
+    </div>
+  </div>
+
+
+  <div class="container docs-content">
+
+    <div class="doc-card">
+      <h2><i class="fas fa-video"></i> 视频教程</h2>
+      <div class="tutorial-grid">
+
+        <div class="tutorial-card">
+          <div class="card-icon"><i class="fas fa-play-circle"></i></div>
+          <h3>原琴辅助演奏MAGIL4.0</h3>
+          <p>Windows桌面端教程</p>
+          <a class="btn-bilibili" href="https://www.bilibili.com/video/BV1yebaznEAe" target="_blank">
+            <i class="fab fa-bilibili"></i> 去B站观看
+          </a>
+        </div>
+
+        <div class="tutorial-card">
+          <div class="card-icon"><i class="fas fa-play-circle"></i></div>
+          <h3>原琴辅助演奏MMAGILM4.1</h3>
+          <p>安卓移动端教程</p>
+          <a class="btn-bilibili" href="#" target="_blank">
+            <i class="fab fa-bilibili"></i> 去B站观看
+          </a>
+        </div>
+      </div>
+      <div class="doc-divider"></div>
+      <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 8px;">
+        <i class="fas fa-info-circle" style="color: #1f5f9e; margin-right: 6px;"></i>
+        欢迎三连+关注作者的 Bilibili 账号。
+      </p>
+    </div>
+  </div>
+
+
+  <footer class="container footer">
+    <div>© 2026 · MAGIL</div>
+    <div class="footer-socials">
+      <a href="https://space.bilibili.com/1302740287"><i class="fab fa-bilibili"></i></a>
+    </div>
+  </footer>
+
+
+  <script>
+    document.querySelectorAll('.btn-primary, .btn-hero-primary, .btn-outline, .btn-hero-ghost').forEach(el => {
+      el.addEventListener('click', (e) => {
+        const hasHref = el.hasAttribute('href') && el.getAttribute('href') !== '' && el.getAttribute('href') !== '#';
+        if (!hasHref) {
+          e.preventDefault();
+        }
+        el.style.transform = 'scale(0.97)';
+        setTimeout(() => { el.style.transform = ''; }, 120);
+      });
+    });
+  </script>
+</body>
+</html>
